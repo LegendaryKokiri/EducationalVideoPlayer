@@ -7,11 +7,12 @@ import playIcon from "../../res/play-icon.png";
 import pauseIcon from "../../res/pause-icon.png";
 import volumeIcon from "../../res/volume.png";
 import fullscreenIcon from "../../res/fullscreen.png";
+import { useSearchParams } from 'react-router-dom';
 
-function Video({videoRef, setVideoMetadata, setVideoTime}) {
+function Video({videoRef, url, setVideoMetadata, setVideoTime}) {
     return (
         <video ref={videoRef} onLoadedMetadata={setVideoMetadata} onTimeUpdate={setVideoTime} className="video">
-            <source src="https://media.geeksforgeeks.org/wp-content/uploads/20190616234019/Canvas.move_.mp4" type="video/mp4"></source>
+            <source src={url} type="video/mp4"></source>
         </video>
     )
 }
@@ -125,9 +126,13 @@ function VideoControls({ videoRef, videoMetadata }) {
     )
 }
 
-function VideoPlayer() {
+function VideoPlayer({ route }) {
     const videoRef = useRef(null);
     const [videoMetadata, setVideoMetadata] = useState({}); { duration: 0 };
+
+    const [ searchParams, setSearchParams] = useSearchParams();
+    console.log(searchParams);
+    console.log(searchParams.get("watchUrl"));
 
     const videoLoadCallback = (e) => {
         setVideoMetadata({duration: e.target.duration, currentTime: 0});
@@ -139,7 +144,7 @@ function VideoPlayer() {
 
     return (
         <div className="videoPlayer">
-            <Video videoRef={videoRef} setVideoMetadata={videoLoadCallback} setVideoTime={videoTimeUpdateCallback}></Video>
+            <Video videoRef={videoRef} url={searchParams.get("watchUrl")} setVideoMetadata={videoLoadCallback} setVideoTime={videoTimeUpdateCallback}></Video>
             <VideoControls videoRef={videoRef} videoMetadata={videoMetadata}></VideoControls>
         </div>
     )

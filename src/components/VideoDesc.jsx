@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createSearchParams, useNavigate, useParams } from "react-router-dom";
 
 import playIcon from "../../res/play-icon.png";
-import { useNavigate } from "react-router-dom";
 
-function VideoDesc({ title, description }) {
+function VideoDesc({ title, description, url }) {
     const navigate = useNavigate();
 
-    const navigateWatch = () => navigate("/watch");
-
+    const navigateWatch = () => navigate({
+        pathname: "/watch",
+        search: `?${createSearchParams({watchUrl: url})}`
+    });
 
     return (
         <div className="videoDesc">
