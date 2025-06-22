@@ -1,0 +1,33 @@
+.uploadInterface {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.uploadContainer {
+    display: flex;
+    flex-direction: column;
+    accent-color: #006400;
+    width: 600px;
+    align-self: center;
+    row-gap: 5px;
+    margin-top: 10px;
+}
+
+.uploadButton {
+    background-color: #7fffd4;
+    border-radius: 4px;
+    border-style: double;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    height: 30px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.uploadButton:hover,
+.uploadButton:focus {
+    background-color: #3bbb90;
+}

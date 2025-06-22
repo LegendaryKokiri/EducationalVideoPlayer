@@ -1,0 +1,31 @@
+.videoPlayer {
+    width: 100%;
+}
+
+.video {
+    width: 100%
+}
+
+.videoControls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.videoTime {
+    width: 350px;
+    accent-color: #006400;
+}
+
+.volumeComponents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.videoVolume {
+    width: 100px;
+    accent-color: #006400;
+}
