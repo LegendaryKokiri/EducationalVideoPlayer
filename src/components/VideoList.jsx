@@ -17,6 +17,8 @@ const test_video_1 = {
 function VideoList() {
     const [videos, setVidoes] = useState([]);
 
+    // On load, automatically load the list of videos from the server.
+    // Use a placeholder video list if the server is inaccessible.
     useEffect(() => {
         axios.get('https://take-home-assessment-423502.uc.r.appspot.com/api/videos')
             .then((response) => {
@@ -29,12 +31,10 @@ function VideoList() {
             })
     }, []);
 
-    console.log(videos);
-
     return (
         <div className="videoList">
             {videos.map(video => (
-                <VideoDesc title={video.title} description={video.description} url={video.video_url}></VideoDesc>
+                <VideoDesc title={video.title} description={video.description} url={video.video_url} videoId={video.id}></VideoDesc>
             ))}
         </div>
     )

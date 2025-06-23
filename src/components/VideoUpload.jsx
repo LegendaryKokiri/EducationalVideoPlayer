@@ -14,7 +14,7 @@ function VideoUpload () {
         const desc = descRef.current.value;
 
         const data = {
-            user_id: "julian_zanders",
+            user_id: "julian_zanders", // A future interation might dynamically set user_id based on a login
             description: desc,
             video_url: url,
             title: title
@@ -29,8 +29,6 @@ function VideoUpload () {
         .catch((error) => {
             console.error(error);
         })
-
-        // fetch("https://take-home-assessment-423502.uc.r.appspot.com/api/videos")
     }
 
     return (

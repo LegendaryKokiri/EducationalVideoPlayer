@@ -10,6 +10,7 @@ import CommentSection from "./CommentSection.jsx";
 import "../stylesheets/app.css";
 
 function App() {
+    // VIDEO SELECTION PAGE
     const videoList = (
         <>
             <TopBar></TopBar>
@@ -17,6 +18,7 @@ function App() {
         </>
     )
 
+    // VIDEO UPLOAD PAGE
     const videoUpload = (
         <>
             <TopBar></TopBar>
@@ -24,6 +26,7 @@ function App() {
         </>
     )
 
+    // VIDEO PLAYBACK PAGE
     const videoInterface = (
         <>
             <TopBar></TopBar>
@@ -32,6 +35,7 @@ function App() {
         </>
     )
     
+    // ROOT APP
     return (
         <div id="app">
             <Routes>

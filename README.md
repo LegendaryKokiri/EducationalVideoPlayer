@@ -2,7 +2,9 @@
 
 This is my submission for the Educational Video Player technical assessment.
 
-Despite multiple attempts with many different approaches (including JavaScript's Fetch API, the Axios library, and even attempting to fudge the "Referer" and "Origin" header fields of my HTTP requests to match the test server's domain), I was unable to circumvent CORS to be able to interface with the server with JavaScript. As such, I used placeholder video objects to implement my solution. In a work environment, I would either simply ask for help or ask to have my test client allowed by the server's CORS policy.
+Despite multiple attempts with many different approaches (including JavaScript's Fetch API, the Axios library, and even attempting to fudge the "Referer" and "Origin" header fields of my HTTP requests to match the test server's domain), I was unable to circumvent CORS to be able to interface with the server with JavaScript. As such, I used placeholder video objects to implement my solution.
+
+In a work environment, I would either simply ask for help or ask to have my test client allowed by the server's CORS policy.
 
 This means that my submission supports:
 - Showing a list of videos given a list of video JavaScript objects

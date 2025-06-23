@@ -4,12 +4,12 @@ import { createSearchParams, useNavigate, useParams } from "react-router-dom";
 
 import playIcon from "../../res/play-icon.png";
 
-function VideoDesc({ title, description, url }) {
+function VideoDesc({ title, description, url, videoId }) {
     const navigate = useNavigate();
 
     const navigateWatch = () => navigate({
         pathname: "/watch",
-        search: `?${createSearchParams({watchUrl: url})}`
+        search: `?${createSearchParams({watchUrl: url, videoId: videoId })}`
     });
 
     return (

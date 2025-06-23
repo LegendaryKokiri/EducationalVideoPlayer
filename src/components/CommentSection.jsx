@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import "../stylesheets/comment_section.css";
 import axios from "axios";
 
@@ -28,6 +29,7 @@ function Comment({ commentUser, commentText }) {
 function CommentEntry() {
     const ref = useRef(null);
 
+    // Automatically resize the textfield to fit the entered text.
     useEffect(() => {
         const entryField = ref.current;
 
@@ -58,9 +60,14 @@ function CommentEntry() {
     )
 }
 
-function CommentSection({ video_id }) {
+function CommentSection({ route }) {
     const [ comments, setComments ] = useState([]);
 
+    const [ searchParams, setSearchParams ] = useSearchParams();
+    const video_id = searchParams.get("videoId");
+
+    // On load, load comments from server.
+    // Use placeholder comments if the server is inaccessible.
     useEffect(() => {
         axios.get(`https://take-home-assessment-423502.uc.r.appspot.com/api/videos/comments?video_id=${video_id}`)
             .then((response) => {
