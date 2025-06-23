@@ -17,3 +17,12 @@ This means that my submission supports:
 ![Video Upload Interface](./submission/Video%20Upload%20Interface.png)
 
 ![Video Player Interface](./submission/Video%20Player%20Screenshot.png)
+
+## To Run Online...
+Run the following commands:
+* `npm run build`
+* `cd dist`
+* `cp index.html 200.html`
+* `npx surge`
+
+Surge will prepare a web domain at which the app can be run.
