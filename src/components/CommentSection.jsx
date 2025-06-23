@@ -2,16 +2,25 @@ import React, { useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useState } from 'react';
 import "../stylesheets/comment_section.css";
+import axios from "axios";
 
 /* ********** *
  * COMPONENTS *
  **************/
 
-function Comment() {
+const test_comment_1 = {
+      "created_at": "2025-06-23T00:09:41.603337+00:00",
+      "content": "This a thought-provoking comment on the video.",
+      "user_id": "Username_123",
+      "video_id": "LyKMTeYRY8b0ZZg8Bgxx",
+      "id": "SQZXwYmljLwFC2e5jKex"
+    }
+
+function Comment({ commentUser, commentText }) {
     return (
         <>
-        <p className="commentUser">Username123</p>
-        <p className="commentText">This is a thought-provoking comment on the video.</p>
+        <p className="commentUser">{commentUser}</p>
+        <p className="commentText">{commentText}</p>
         </>
     )
 }
@@ -49,38 +58,27 @@ function CommentEntry() {
     )
 }
 
-function CommentSection() {
+function CommentSection({ video_id }) {
+    const [ comments, setComments ] = useState([]);
+
+    useEffect(() => {
+        axios.get(`https://take-home-assessment-423502.uc.r.appspot.com/api/videos/comments?video_id=${video_id}`)
+            .then((response) => {
+                console.log("Got a successful response");
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log("Got an error response");
+                setComments( [ test_comment_1 ] );
+            })
+    }, []);
+
     return (
         <div className="commentSection">
             <CommentEntry></CommentEntry>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
-            <Comment></Comment>
+            {comments.map(comment => (
+                <Comment commentUser={comment.user_id} commentText={comment.content}></Comment>
+            ))}
         </div>
     )
 }

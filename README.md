@@ -8,7 +8,7 @@ This means that my submission supports:
 - Showing a list of videos given a list of video JavaScript objects
 - A frontend interface where a title, description, and video URL can be entered
 - A frontend interface to make and view comments
-- A custom video playback interface that supports playing, pausing, scrubbing, and adjusting playback speed and volume.
+- A custom video playback interface that supports playing, pausing, scrubbing, entering fullscreen, and adjusting playback speed and volume.
 
 ![Video Selector Interface](./submission/Video%20Selector%20Interface.png)
 
